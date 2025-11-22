@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>榄途璀璨</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0A4DA2',    // 主蓝色
+            secondary: '#2A73C9',  // 次要蓝色
+            accent: '#00B4FF',     // 强调色
+            dark: '#2C3E50',       // 深色文本
+          },
+          fontFamily: {
+            sans: ['Microsoft YaHei', 'Arial', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .bg-gradient-blue {
+        background: linear-gradient(135deg, #0A4DA2 0%, #2A73C9 100%);
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 font-sans text-dark">
+  <!-- 顶部背景图区域 -->
+  <header class="relative h-[50vh] min-h-[400px] overflow-hidden">
+    <!-- 城市背景图：替换这里的图片链接 -->
+    <img src="order_a.jpg" alt="城市建筑背景" class="w-full h-full object-cover">
+    
+    <!-- 蓝色渐变覆盖层 -->
+    <div class="absolute inset-0 bg-primary/40"></div>
+    
+    <!-- 网格和图标装饰 -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwQTREQTIiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMzYgMzBoLTZ2Nmg2djZoNnYtNmgtNnYtNnoiLz48cGF0aCBkPSJNMjQgMzBoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMTIgMzBoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMzYgMThoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMjQgMThoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMTIgMThoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMzYgNmgtNnY2aNnY2o2di02aC02di02eiIvPjxwYXRoIGQ9Ik0yNCA2aC02djZoNnY2aNnYtNmgtNnoiLz48cGF0aCBkPSJNMTIgNmgtNnY2aNnY2o2di02aC02di02eiIvPjwvZz48L2c+PC9zdmc+')]"></div>
+    </div>
+    
+    <!-- 定位图标装饰 -->
+    <div class="absolute inset-0">
+      <div class="absolute top-[20%] left-[30%] text-accent text-xl"><i class="fa fa-map-marker"></i></div>
+      <div class="absolute top-[40%] left-[70%] text-accent text-lg"><i class="fa fa-map-marker"></i></div>
+      <div class="absolute top-[60%] left-[20%] text-accent text-xl"><i class="fa fa-map-marker"></i></div>
+      <div class="absolute top-[30%] left-[50%] text-accent text-lg"><i class="fa fa-map-marker"></i></div>
+      <div class="absolute top-[70%] left-[60%] text-accent text-xl"><i class="fa fa-map-marker"></i></div>
+    </div>
+  </header>
+
+  <!-- 主要内容区 -->
+  <main class="container mx-auto px-4 -mt-16 relative z-10">
+    <div class="bg-white rounded-lg shadow-xl p-6 md:p-10 max-w-4xl mx-auto">
+      <!-- 企业简介 -->
+      <section class="mb-12">
+        <div class="flex items-center mb-6">
+          <div class="w-10 h-1 bg-primary mr-3"></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary">企业简介 <span class="text-dark text-lg ml-2">COMPANY PROFILE</span></h2>
+        </div>
+        
+        <div class="pl-13 text-gray-700 leading-relaxed">
+          <p class="mb-4">XXX装饰工程有限公司是一家室内外装饰工程、建筑工程、材料配送的装饰企业。主要从事住宅、公寓、办公、商业、等场所的设计和施工。公司已经由石家庄市工商行政管理局正式批准注册以取得国家正规资质的单位。</p>
+          
+          <p class="mb-4">秉承"以人为本"的设计理念、"顾客至上"的服务态度、"共同成长"的企业文化。公司实行从咨询开始，免费为您提供创意草案，测量设计、精心选材、施工装饰配置定期回访，两年保修，终身维修的全程服务。专业服务全程同步。</p>
+          
+          <p>我们将精心为您营造一个温馨，舒适环保的工作生活环境。本公司拥有一批精致而专业的管理团队和施工队伍。材料都是由公司统一配送。有固定的办公场所从根本上彻底解决业主施工质量和售后服务无保障等后顾之忧。</p>
+        </div>
+      </section>
+      
+      <!-- 企业文化 -->
+      <section class="mb-12">
+        <div class="flex items-center mb-6">
+          <div class="w-10 h-1 bg-primary mr-3"></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary">企业文化 <span class="text-dark text-lg ml-2">CORPORATE CULTURE</span></h2>
+        </div>
+        
+        <div class="pl-13 text-gray-700 leading-relaxed">
+          <p>公司实行从咨询开始，免费为您提供创意草案，测量设计、精心选材、施工装饰配置；定期回访，两年保修，终身维修的全程服务。专业服务全程同步。我们将精心为您营造一个温馨，舒适环保的工作生活环境。</p>
+        </div>
+      </section>
+      
+      <!-- 企业理念 -->
+      <section class="mb-8">
+        <div class="flex items-center mb-6">
+          <div class="w-10 h-1 bg-primary mr-3"></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary">企业理念 <span class="text-dark text-lg ml-2">ENTERPRISE CONCEPT</span></h2>
+        </div>
+        
+        <div class="pl-13 text-gray-700 leading-relaxed">
+          <p>公司实行从咨询开始，免费为您提供创意草案，测量设计、精心选材、施工装饰配置；定期回访，两年保修，终身维修的全程服务。专业服务全程同步。我们将精心为您营造一个温馨，舒适环保的工作生活环境。</p>
+        </div>
+      </section>
+      
+      <!-- 企业联系信息 -->
+      <section class="pt-8 border-t border-gray-200">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="flex items-start">
+            <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fa fa-map-marker text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold mb-1">公司地址</h3>
+              <p class="text-gray-600 text-sm">石家庄市XX区XX路XX号XX大厦XX层</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fa fa-phone text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold mb-1">联系电话</h3>
+              <p class="text-gray-600 text-sm">0311-XXXXXXXX</p>
+              <p class="text-gray-600 text-sm">138-XXXX-XXXX</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fa fa-envelope text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold mb-1">电子邮箱</h3>
+              <p class="text-gray-600 text-sm">info@xxxxcompany.com</p>
+              <p class="text-gray-600 text-sm">service@xxxxcompany.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- 页脚 -->
+  <footer class="bg-primary text-white mt-16 py-10">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-2">© 2023 XXX装饰工程有限公司 版权所有</p>
+      <p class="text-sm opacity-80">冀ICP备XXXXXXXX号</p>
+    </div>
+  </footer>
+
+  <script>
+    // 图片替换指南：
+    // 1. 顶部城市背景图：当前使用id为1031的占位图
+    //    <img src="https://picsum.photos/id/1031/1600/900" alt="城市建筑背景" class="w-full h-full object-cover">
+    //
+    // 替换方法：将对应img标签的src属性值替换为你的图片URL
+    // 建议使用：
+    // - 现代城市建筑图片
+    // - 包含科技感或建筑元素的图片
+    // - 尺寸建议1600x900像素以上，以保证清晰度
+    // - 保持图片的色调与整体蓝色主题协调
+  </script>
+</body>
+</html>
