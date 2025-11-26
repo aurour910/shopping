@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>榄途璀璨</title>
+    <style>
+        /* --- CSS 样式保持不变 --- */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .header {
+            background-color: #f1a605;
+            color: white;
+            padding: 15px 0;
+            text-align: right;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: opacity 0.3s;
+        }
+        .header a:hover {
+            opacity: 0.8;
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #eee;
+            justify-content: space-between;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74d06;
+        }
+        .search-section {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            max-width: 800px;
+        }
+        .search-box {
+            flex: 1;
+            padding: 10px 15px;
+            border: 2px solid #ec3103fe;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+            outline: none;
+        }
+        .search-btn {
+            background-color: #ec3103fe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-btn:hover {
+            background-color: #d42a00;
+        }
+        .nav {
+            background-color: #ec3103fe;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-weight: 500;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .main-container {
+            display: flex;
+        }
+        .sidebar {
+            width: 100px;
+            background-color: #e74d06;
+            padding: 20px;
+            flex-shrink: 0;
+            border-right: 1px solid #eee;
+        }
+        .sidebar a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #eee;
+            color: #e74d06;
+        }
+        .main-content {
+            flex: 1;
+        }
+        .banner {
+            height: 400px;
+            background-image: url("images/网站主页.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: rgb(0, 0, 0);
+            font-size: 50px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            position: relative;
+            cursor: pointer;
+        }
+        .banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255,255,255,0.2);
+        }
+        .banner-text {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.8);
+        }
+        .featured-products {
+            padding: 30px 20px;
+            background-color: #fff;
+        }
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .featured-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background-color: #fcfcfc;
+        }
+        .featured-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-color: #e74d06;
+        }
+        .featured-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .featured-info {
+            padding: 15px;
+        }
+        .featured-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .featured-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .featured-price {
+            color: #e74d06;
+            font-weight: bold;
+        }
+        .add-to-cart-btn, .view-details-btn, .nav-link { /* 统一可点击元素的 cursor */
+            cursor: pointer;
+        }
+        .add-to-cart-btn, .view-details-btn {
+            display: inline-block;
+            width: 48%;
+            text-align: center;
+            background-color: #ec3103fe;
+            color: white;
+            padding: 8px 0;
+            margin-top: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            border: none;
+        }
+        .add-to-cart-btn:hover, .view-details-btn:hover {
+            background-color: #d42a00;
+        }
+        .view-details-btn {
+            background-color: #f1a605;
+        }
+        .view-details-btn:hover {
+            background-color: #e09a00;
+        }
+        .display-section {
+            padding: 30px 20px;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+        }
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #ec3103fe;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-title a {
+            font-size: 16px;
+            color: #e74d06;
+            text-decoration: none;
+            font-weight: normal;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            cursor: pointer; /* 图片可点击 */
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .product-price {
+            color: #e74d06;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .triple-section {
+            padding: 30px 20px;
+            background-color: #f9f9f9;
+        }
+        .triple-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .triple-block {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .triple-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .triple-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer; /* 图片可点击 */
+        }
+        .triple-content {
+            padding: 20px;
+        }
+        .triple-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .triple-desc {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .triple-link {
+            display: inline-block;
+            color: #e74d06;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            border-bottom: 2px solid #e74d06;
+            transition: color 0.3s;
+        }
+        .triple-link:hover {
+            color: #d42a00;
+        }
+        @media (max-width: 992px) {
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .triple-container {
+                grid-template-columns: 1fr;
+            }
+            .main-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: auto;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            .sidebar a {
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .search-section {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+        @media (max-width: 576px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- 修改：使用 nav-link 类和 data-target 属性 -->
+        <a class="nav-link" data-target="login">请先登录</a>
+        <a class="nav-link" data-target="register">免费注册</a>
+        <a class="nav-link" data-target="userCenter">我的订单</a>
+        <a class="nav-link" data-target="userCenter">会员中心</a>
+        <a class="nav-link" data-target="help">帮助中心</a>
+        <a class="nav-link" data-target="support">在线客服</a>
+        <a class="nav-link" data-target="mobileApp">手机版</a>
+    </div>
+
+    <!-- 修改：Logo 区域 -->
+    <div class="logo-section nav-link" data-target="home">
+        <div class="top-bar">
+            <div class="logo-section">
+                <img class="logo" src="images/logo.jpg" alt="榄途璀璨品牌Logo">
+                <div class="logo-text">榄途璀璨</div>
+            </div>
+            <div class="search-section">
+                <input type="text" class="search-box" placeholder="搜索商品、品牌或分类...">
+                <button class="search-btn">搜索</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <!-- 修改：主导航 -->
+        <a class="nav-link" data-target="home">首页</a>
+        <a class="nav-link" data-target="productList">原料</a>
+        <a class="nav-link" data-target="productList">美食</a>
+        <a class="nav-link" data-target="productList">美妆</a>
+        <a class="nav-link" data-target="productList">护肤</a>
+        <a class="nav-link" data-target="productList">居家</a>
+        <a class="nav-link" data-target="productList">洗护</a>
+        <a class="nav-link" data-target="productList">孕婴</a>
+        <a class="nav-link" data-target="productList">祛痘</a>
+    </div>
+
+    <!-- 主容器：左侧栏 + 右侧主内容 -->
+    <div class="main-container">
+        <div class="sidebar">
+            <!-- 修改：侧边栏 -->
+            <a class="nav-link" data-target="productList">品牌</a>
+            <a class="nav-link" data-target="productList">原料</a>
+            <a class="nav-link" data-target="productList">产地介绍</a>
+            <a class="nav-link" data-target="productList">美食</a>
+            <a class="nav-link" data-target="productList">特色</a>
+            <a class="nav-link" data-target="productList">精华</a>
+            <a class="nav-link" data-target="productList">护发</a>
+            <a class="nav-link" data-target="productList">护肤</a>
+            <a class="nav-link" data-target="productList">护肤</a>
+            <a class="nav-link" data-target="productList">新品</a>
+            <a class="nav-link" data-target="productList">居家</a>
+            <a class="nav-link" data-target="productList">儿童</a>
+            <a class="nav-link" data-target="productList">洗护</a>
+            <a class="nav-link" data-target="productList">洗发</a>
+            <a class="nav-link" data-target="productList">洗护</a>
+            <a class="nav-link" data-target="productList">美妆</a>
+            <a class="nav-link" data-target="productList">孕婴</a>
+            <a class="nav-link" data-target="productList">品牌</a>
+            <a class="nav-link" data-target="productList">品牌制造</a>
+        </div>
+
+        <div class="main-content">
+            <!-- 修改：Banner 区域 -->
+            <div class="banner nav-link" data-target="promotion">
+                <div class="banner-text">限时特惠，全场8折</div>
+            </div>
+
+            <div class="featured-products">
+                <h2 class="section-title">特色商品 <a class="nav-link" data-target="productList">查看更多</a></h2>
+                <div class="featured-grid">
+                    <!-- 特色商品1 -->
+                    <div class="featured-item">
+                        <!-- 修改：商品图片 -->
+                        <img src="images/featured/特商1.jpg" alt="橄榄精华" class="featured-img nav-link" data-target="productDetail">
+                        <div class="featured-info">
+                            <div class="featured-title">橄榄精华</div>
+                            <div class="featured-desc">源自陇南，天然无添加...</div>
+                            <div class="featured-price">¥39.99/瓶</div>
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <!-- 修改：查看详情按钮 -->
+                            <a class="view-details-btn nav-link" data-target="productDetail">查看详情</a>
+                        </div>
+                    </div>
+                    <!-- 特色商品2 -->
+                    <div class="featured-item">
+                        <img src="images/featured/特商2.jpg" alt="精选精华礼盒" class="featured-img nav-link" data-target="productDetail">
+                        <div class="featured-info">
+                            <div class="featured-title">精选精华礼盒</div>
+                            <div class="featured-desc">敏感肌专用护肤精华...</div>
+                            <div class="featured-price">¥48.88/盒</div>
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <a class="view-details-btn nav-link" data-target="productDetail">查看详情</a>
+                        </div>
+                    </div>
+                    <!-- 商品3 和 4 做同样修改 -->
+                    <div class="featured-item">
+                        <img src="images/featured/特商3.jpg" alt="天然精油套装" class="featured-img nav-link" data-target="productDetail">
+                        <div class="featured-info">
+                            <div class="featured-title">天然精油套装</div>
+                            <div class="featured-desc">橄榄SOD蜜...</div>
+                            <div class="featured-price">¥19.99/瓶</div>
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <a class="view-details-btn nav-link" data-target="productDetail">查看详情</a>
+                        </div>
+                    </div>
+                    <div class="featured-item">
+                        <img src="images/featured/特商4.jpg" alt="手工有机香皂" class="featured-img nav-link" data-target="productDetail">
+                        <div class="featured-info">
+                            <div class="featured-title">手工有机香皂</div>
+                            <div class="featured-desc">纯天然成分制作...</div>
+                            <div class="featured-price">¥19.9/块</div>
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <a class="view-details-btn nav-link" data-target="productDetail">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 热销推荐区 -->
+            <div class="display-section">
+                <h2 class="section-title">热销推荐 <a class="nav-link" data-target="productList">查看更多</a></h2>
+                <div class="product-grid">
+                    <!-- 商品卡片1 -->
+                    <div class="product-card">
+                        <img src="images/products/fruit-combo.jpg" alt="严选橄榄果脯" class="product-img nav-link" data-target="productDetail">
+                        <div class="product-info">
+                            <div class="product-name">严选橄榄果脯</div>
+                            <div class="product-price">¥30/斤</div>
+                            <button class="add-to-cart-btn">加入购物车</button>
+                        </div>
+                    </div>
+                    <!-- 其他商品卡片做同样修改 -->
+                    <div class="product-card">
+                        <img src="images/products/商图2.jpg" alt="橄榄油" class="product-img nav-link" data-target="productDetail">
+                        <div class="product-info">
+                            <div class="product-name">橄榄油</div>
+                            <div class="product-price">¥30/瓶</div>
+                            <button class="add-to-cart-btn">加入购物车</button>
+                        </div>
+                    </div>
+                    <!-- ... 省略其他商品卡片 ... -->
+                </div>
+            </div>
+
+            <!-- 三个并列展示区块 -->
+            <div class="triple-section">
+                <h2 class="section-title">特别推荐</h2>
+                <div class="triple-container">
+                    <!-- 区块1：新品上市 -->
+                    <div class="triple-block">
+                        <img src="images/sections/商图7.jpg" alt="新品上市" class="triple-img nav-link" data-target="productList">
+                        <div class="triple-content">
+                            <h3 class="triple-title">新品上市</h3>
+                            <p class="triple-desc">探索本月全新上架商品...</p>
+                            <a class="triple-link nav-link" data-target="productList">查看全部新品 →</a>
+                        </div>
+                    </div>
+                    <!-- 区块2 和 3 做同样修改 -->
+                    <div class="triple-block">
+                        <img src="images/sections/商图8.jpg" alt="限时特惠" class="triple-img nav-link" data-target="promotion">
+                        <div class="triple-content">
+                            <h3 class="triple-title">限时特惠</h3>
+                            <p class="triple-desc">每日精选特惠商品...</p>
+                            <a class="triple-link nav-link" data-target="promotion">立即抢购 →</a>
+                        </div>
+                    </div>
+                    <div class="triple-block">
+                        <img src="images/sections/商图9.jpg" alt="品牌专区" class="triple-img nav-link" data-target="productList">
+                        <div class="triple-content">
+                            <h3 class="triple-title">品牌专区</h3>
+                            <p class="triple-desc">汇聚全球知名品牌...</p>
+                            <a class="triple-link nav-link" data-target="productList">浏览品牌 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 核心修改：URL 配置中心 ---
+        // 所有页面的跳转地址都在这里管理
+        const URL_CONFIG = {
+            home: 'index.html',
+            login: 'login.html',
+            register: 'register.html',
+            userCenter: 'user_center.html',
+            productList: 'product_list.html',
+            productDetail: 'product_detail.html',
+            promotion: 'promotion.html',
+            help: 'help.html', // 你可以创建 help.html
+            support: 'support.html', // 你可以创建 support.html
+            mobileApp: 'mobile_app.html' // 你可以创建 mobile_app.html
+        };
+
+        // --- 通用跳转函数 ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有带有 'nav-link' 类的元素
+            const allLinks = document.querySelectorAll('.nav-link');
+
+            // 为每个元素添加点击事件监听器
+            allLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // 获取 data-target 属性的值
+                    const targetKey = this.getAttribute('data-target');
+
+                    // 从配置对象中查找对应的 URL
+                    const targetUrl = URL_CONFIG[targetKey];
+
+                    // 如果找到了有效的 URL，则进行跳转
+                    if (targetUrl) {
+                        window.location.href = targetUrl;
+                    } else {
+                        console.warn(`未在 URL_CONFIG 中找到目标键: ${targetKey}`);
+                        // 可以在这里添加默认行为，例如不跳转或跳转到首页
+                        // window.location.href = URL_CONFIG.home;
+                    }
+                });
+            });
+        });
+
+        // --- 原有购物车逻辑保持不变 ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.featured-item, .product-card');
+                    const productName = productCard.querySelector('.featured-title, .product-name').textContent;
+                    const productPrice = productCard.querySelector('.featured-price, .product-price').textContent;
+                    alert(`${productName} ${productPrice} 已成功加入购物车！`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

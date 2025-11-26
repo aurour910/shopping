@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小瓶起发精髓 - 护发精油</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FFD162',      // 主黄色
+            secondary: '#FFF3D9',    // 浅黄背景
+            accent: '#FF8A00',       // 强调色
+            dark: '#333333',         // 深色文本
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .bg-gradient-yellow {
+        background: linear-gradient(180deg, #FFD162 0%, #FFE69E 100%);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-dark font-sans">
+  <!-- 顶部进度条 -->
+  <div class="px-6 pt-8 pb-4">
+    <div class="flex justify-between text-xs text-gray-500 mb-2">
+      <span>Rough sketch</span>
+      <span>Improvement</span>
+    </div>
+    <div class="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+      <div class="w-1/2 h-full bg-primary rounded-full"></div>
+    </div>
+  </div>
+
+  <!-- 产品展示大图 -->
+  <section class="relative h-[50vh] overflow-hidden">
+    <!-- 主图：替换这里的图片链接 -->
+    <img src="网站主页.jpg" alt="护发精油展示" class="w-full h-full object-cover">
+    
+    <!-- 渐变叠加层 -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+    
+    <!-- 图片上的文字 -->
+    <div class="absolute bottom-8 left-6 right-6 text-white">
+      <p class="text-sm mb-2 opacity-90">持久水润光泽 · 柔顺发丝不打结</p>
+      <p class="text-lg md:text-xl font-medium text-shadow">Perfecting the way you care for your hair</p>
+    </div>
+  </section>
+
+  <!-- 产品信息卡片 -->
+  <section class="px-6 -mt-16 relative z-10">
+    <div class="bg-white rounded-2xl shadow-xl p-5 md:p-8">
+      <!-- 产品标题 -->
+      <div class="mb-6 md:mb-8">
+        <p class="text-accent text-sm md:text-base font-medium mb-2">A spray for improvement</p>
+        <h1 class="text-xl md:text-2xl font-bold mb-2">小瓶起发精髓</h1>
+        <p class="text-gray-600">一喷轻松改善</p>
+      </div>
+      
+      <!-- 产品主图 -->
+      <div class="relative rounded-xl overflow-hidden bg-secondary p-6 md:p-10 mb-8 flex justify-center">
+        <!-- 产品图片：替换这里的图片链接 -->
+        <img src="网站主页.jpg" alt="小瓶起发精髓产品图" class="h-64 md:h-80 object-contain">
+        
+        <!-- 装饰元素 - 可以根据需要调整或删除 -->
+        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-primary/20 rounded-full"></div>
+        <div class="absolute -top-2 -right-2 w-12 h-12 bg-primary/30 rounded-full"></div>
+
+      </div>
+      
+      <!-- 产品特点 -->
+      <div class="space-y-6 md:space-y-8">
+        <div class="flex items-start">
+          <div class="bg-secondary rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4">
+            <i class="fa fa-leaf text-accent"></i>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">天然有机成分</h3>
+            <p class="text-gray-600 text-sm">采用纯天然植物精华提取，不含刺激性化学成分，温和滋养发丝</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="bg-secondary rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4">
+            <i class="fa fa-bolt text-accent"></i>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">快速吸收不油腻</h3>
+            <p class="text-gray-600 text-sm">独特配方设计，能够快速渗透发丝内部，不留下油腻感</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="bg-secondary rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4">
+            <i class="fa fa-shield text-accent"></i>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">多重修护功效</h3>
+            <p class="text-gray-600 text-sm">有效修复受损发质，减少分叉，增强发丝韧性，预防断裂</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="bg-secondary rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-4">
+            <i class="fa fa-flask text-accent"></i>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1">天然植物精粹</h3>
+            <p class="text-gray-600 text-sm">蕴含多种珍贵植物精油，深层滋养头皮，促进健康生长</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 购买区域 -->
+      <div class="mt-10 pt-6 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
+        <div>
+          <p class="text-gray-500 text-sm">参考价格</p>
+          <p class="text-2xl font-bold text-accent mt-1">¥89.00</p>
+        </div>
+        
+        <button class="mt-4 md:mt-0 bg-gradient-yellow text-dark px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity transform hover:-translate-y-0.5 active:translate-y-0 duration-200 shadow-md">
+          立即购买
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 底部空白区域 -->
+  <div class="h-20 bg-gray-50 mt-8"></div>
+
+  <script>
+    // 图片替换指南：
+    // 1. 产品展示大图：id为96的占位图
+    //    <img src="https://picsum.photos/id/96/800/1000" alt="护发精油展示" class="w-full h-full object-cover">
+    //
+    // 2. 产品主图：id为21的占位图
+    //    <img src="https://picsum.photos/id/21/600/800" alt="小瓶起发精髓产品图" class="h-64 md:h-80 object-contain">
+    //
+    // 替换方法：将对应img标签的src属性值替换为你的图片URL
+    // 建议保持相似的图片比例以获得最佳显示效果
+  </script>
+</body>
+</html>

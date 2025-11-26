@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>榄途璀璨</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0A4DA2',    // 主蓝色
+            secondary: '#2A73C9',  // 次要蓝色
+            accent: '#00B4FF',     // 强调色
+            dark: '#2C3E50',       // 深色文本
+          },
+          fontFamily: {
+            sans: ['Microsoft YaHei', 'Arial', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .bg-gradient-blue {
+        background: linear-gradient(135deg, #0A4DA2 0%, #2A73C9 100%);
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 font-sans text-dark">
+  <!-- 顶部背景图区域 -->
+  <header class="relative h-[50vh] min-h-[400px] overflow-hidden">
+    <!-- 城市背景图：替换这里的图片链接 -->
+    <img src="order_a.jpg" alt="城市建筑背景" class="w-full h-full object-cover">
+    
+    <!-- 蓝色渐变覆盖层 -->
+    <div class="absolute inset-0 bg-primary/40"></div>
+    
+    <!-- 网格和图标装饰 -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwQTREQTIiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMzYgMzBoLTZ2Nmg2djZoNnYtNmgtNnYtNnoiLz48cGF0aCBkPSJNMjQgMzBoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMTIgMzBoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMzYgMThoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMjQgMThoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMTIgMThoLTZ2Nmg2djZoNnYtNmgtNnoiLz48cGF0aCBkPSJNMzYgNmgtNnY2aNnY2o2di02aC02di02eiIvPjxwYXRoIGQ9Ik0yNCA2aC02djZoNnY2aNnYtNmgtNnoiLz48cGF0aCBkPSJNMTIgNmgtNnY2aNnY2o2di02aC02di02eiIvPjwvZz48L2c+PC9zdmc+')]"></div>
+    </div>
+    
+    <!-- 定位图标装饰 -->
+    <div class="absolute inset-0">
+      <div class="absolute top-[20%] left-[30%] text-accent text-xl"><i class="fa fa-map-marker"></i></div>
+      <div class="absolute top-[40%] left-[70%] text-accent text-lg"><i class="fa fa-map-marker"></i></div>
+      <div class="absolute top-[60%] left-[20%] text-accent text-xl"><i class="fa fa-map-marker"></i></div>
+      <div class="absolute top-[30%] left-[50%] text-accent text-lg"><i class="fa fa-map-marker"></i></div>
+      <div class="absolute top-[70%] left-[60%] text-accent text-xl"><i class="fa fa-map-marker"></i></div>
+    </div>
+  </header>
+
+  <!-- 主要内容区 -->
+  <main class="container mx-auto px-4 -mt-16 relative z-10">
+    <div class="bg-white rounded-lg shadow-xl p-6 md:p-10 max-w-4xl mx-auto">
+      <!-- 企业简介 -->
+      <section class="mb-12">
+        <div class="flex items-center mb-6">
+          <div class="w-10 h-1 bg-primary mr-3"></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary">企业简介 <span class="text-dark text-lg ml-2">COMPANY PROFILE</span></h2>
+        </div>
+        
+        <div class="pl-13 text-gray-700 leading-relaxed">
+          <p class="mb-4">“橄途璀璨”是一家聚焦陇南油橄榄产业振兴的创新型企业，依托陇南“全国油橄榄最佳适生区”的先天优势，以电商为核心引擎，构建“产学研销”一体化运营体系。</p>
+          
+          <p class="mb-4">我们整合油橄榄种植、研发、生产、销售全产业链资源，打造涵盖护肤、美妆、食品、保健品等多品类的油橄榄衍生产品矩阵，通过专属网站、小程序、主流电商平台及抖音、小红书等社交渠道，实现产品全域覆盖。</p>
+          
+          <p>借助大数据精准定位消费需求，以“天然、绿色、有机”为核心竞争力，既推动陇南油橄榄产业从初级加工向高值化升级，又通过“企业+基地+农户”模式带动当地农户增收，助力乡村振兴。</p>
+        </div>
+      </section>
+      
+      <!-- 企业文化 -->
+      <section class="mb-12">
+        <div class="flex items-center mb-6">
+          <div class="w-10 h-1 bg-primary mr-3"></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary">企业文化 <span class="text-dark text-lg ml-2">CORPORATE CULTURE</span></h2>
+        </div>
+        
+        <div class="pl-13 text-gray-700 leading-relaxed">
+          <p>1. 创新进取：勇于突破传统模式，探索智能技术、电商运营、产品研发的创新应用，在市场竞争中追求卓越。
+
+2. 团结协作：依托多学科专业团队优势，建立跨部门协同机制，强化沟通配合，凝聚团队合力攻克难题。
+
+3. 诚信担当：坚守商业道德，对消费者诚信负责，保障产品品质与透明化；对团队、合作伙伴及社会勇于担当，践行乡村振兴使命。
+
+4. 价值共生：秉持“消费—助农—生态保护”的闭环理念，实现消费者、农户、产业、社会的多方共赢，推动可持续发展。</p>
+        </div>
+      </section>
+      
+      <!-- 企业理念 -->
+      <section class="mb-8">
+        <div class="flex items-center mb-6">
+          <div class="w-10 h-1 bg-primary mr-3"></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary">企业理念 <span class="text-dark text-lg ml-2">ENTERPRISE CONCEPT</span></h2>
+        </div>
+        
+        <div class="pl-13 text-gray-700 leading-relaxed">
+          <p>核心理念：天然、绿色、有机，赋能产业振兴
+• 产品层面：坚守以陇南优质油橄榄为原料，采用先进工艺保留天然活性成分，杜绝有害化学添加，打造安全、高效的特色产品。
+• 产业层面：深度挖掘陇南油橄榄的地域价值与生态价值，推动种植、加工、销售协同发展，构建完整产业链，实现产业提质增效。
+• 社会层面：以电商助力乡村振兴为使命，通过产业发展带动农户增收，促进城乡经济循环，实现商业价值与社会价值的统一。</p>
+        </div>
+      </section>
+      
+      <!-- 企业联系信息 -->
+      <section class="pt-8 border-t border-gray-200">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="flex items-start">
+            <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fa fa-map-marker text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold mb-1">公司地址</h3>
+              <p class="text-gray-600 text-sm">石家庄市XX区XX路XX号XX大厦XX层</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fa fa-phone text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold mb-1">联系电话</h3>
+              <p class="text-gray-600 text-sm">0311-XXXXXXXX</p>
+              <p class="text-gray-600 text-sm">138-XXXX-XXXX</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="bg-primary/10 rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">
+              <i class="fa fa-envelope text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold mb-1">电子邮箱</h3>
+              <p class="text-gray-600 text-sm">info@xxxxcompany.com</p>
+              <p class="text-gray-600 text-sm">service@xxxxcompany.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- 页脚 -->
+  <footer class="bg-primary text-white mt-16 py-10">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-2">© 2023 XXX装饰工程有限公司 版权所有</p>
+      <p class="text-sm opacity-80">冀ICP备XXXXXXXX号</p>
+    </div>
+  </footer>
+
+  <script>
+    // 图片替换指南：
+    // 1. 顶部城市背景图：当前使用id为1031的占位图
+    //    <img src="https://picsum.photos/id/1031/1600/900" alt="城市建筑背景" class="w-full h-full object-cover">
+    //
+    // 替换方法：将对应img标签的src属性值替换为你的图片URL
+    // 建议使用：
+    // - 现代城市建筑图片
+    // - 包含科技感或建筑元素的图片
+    // - 尺寸建议1600x900像素以上，以保证清晰度
+    // - 保持图片的色调与整体蓝色主题协调
+  </script>
+</body>
+</html>

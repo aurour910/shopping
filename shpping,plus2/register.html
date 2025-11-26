@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录页面</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#4080FF',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .bg-gradient-blue {
+        background: linear-gradient(135deg, #165DFF 0%, #4080FF 100%);
+      }
+      .input-focus {
+        @apply focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none;
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-blue-50 font-sans flex items-center justify-center p-4">
+  <!-- 主容器 -->
+  <div class="w-full max-w-5xl flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl">
+    <!-- 左侧图片区域 -->
+    <div class="w-full md:w-1/2 h-64 md:h-auto relative">
+      <!-- 左侧背景图片：替换这里的图片链接即可 -->
+      <img src="order_a.jpg" alt="风景背景" class="w-full h-full object-cover">
+      
+      <!-- 图片叠加层，增强文字可读性 -->
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-transparent"></div>
+    </div>
+    
+    <!-- 右侧登录表单 -->
+    <div class="w-full md:w-1/2 bg-gray-100 p-8 md:p-12 flex flex-col">
+      <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-gray-800 mb-8 text-center">欢迎登录</h2>
+      
+      <form class="space-y-5 flex-grow">
+        <!-- 账号输入 -->
+        <div>
+          <input 
+            type="text" 
+            placeholder="请输入账号" 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 input-focus transition-all"
+          >
+        </div>
+        
+        <!-- 密码输入 -->
+        <div>
+          <input 
+            type="password" 
+            placeholder="请输入密码" 
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 input-focus transition-all"
+          >
+        </div>
+        
+        <!-- 验证码 -->
+        <div class="flex gap-3">
+          <input 
+            type="text" 
+            placeholder="验证码" 
+            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 input-focus transition-all"
+          >
+          <button type="button" class="whitespace-nowrap px-4 py-3 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors">
+            发送验证码
+          </button>
+        </div>
+        
+        <!-- 登录按钮 -->
+        <button 
+          type="submit" 
+          class="w-full py-3 bg-gradient-blue text-white rounded-lg font-medium hover:opacity-90 transition-opacity transform hover:-translate-y-0.5 active:translate-y-0 duration-200"
+        >
+          马上登录
+        </button>
+      </form>
+      
+      <!-- 底部链接 -->
+      <div class="flex justify-between mt-8 text-gray-600 text-sm">
+        <a href="#" class="hover:text-primary transition-colors">注册</a>
+        <a href="#" class="hover:text-primary transition-colors">忘记密码?</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 图片替换指南：
+    // 1. 页面中主要有1张图片需要替换，位于左侧图片区域
+    // 2. 找到下面这段代码并替换src属性的值：
+    //    <img src="https://picsum.photos/id/15/800/1000" alt="风景背景" class="w-full h-full object-cover">
+    // 3. 建议使用尺寸比例相似的图片（竖版风景图效果最佳）
+    // 4. 替换后保持class属性不变，以确保响应式显示效果
+  </script>
+</body>
+</html>
